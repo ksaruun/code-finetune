@@ -1,0 +1,31 @@
+# Core training
+torch>=2.1.0
+transformers>=4.40.0,<=5.17.0   # unsloth-zoo requires <=5.17.0
+datasets>=2.18.0,<2.0.0          # huggingface_hub<2.0 constraint propagates here
+peft>=0.10.0
+trl>=0.8.6
+accelerate>=0.28.0
+bitsandbytes>=0.43.0
+
+# Unsloth - optimized for Apple Silicon / MPS
+unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git
+
+# Data & utilities
+huggingface_hub>=0.22.0,<2.0.0   # sentence-transformers + datasets both require <2.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+scipy>=1.12.0
+
+# Evaluation
+evaluate>=0.4.1
+
+# Monitoring (used by dry_run.py)
+psutil
+
+# Optional: experiment tracking
+# wandb>=0.16.0
+
+# ── llama.cpp note ──────────────────────────────────────────────────────────
+# Do NOT run: pip install -r ~/llama.cpp/requirements.txt
+# It pins older torch/transformers versions that break unsloth.
+# The convert_hf_to_gguf.py script works fine with the versions above.
